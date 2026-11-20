@@ -1,0 +1,14 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+chandan-aiops
+seaborn
+ipykernel
+imblearn
+scipy
+xgboost
+flaml
+flaml[automl]
+mlflow
+lightgbm
