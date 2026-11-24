@@ -67,8 +67,8 @@ def data_preprocessing(df):
     
 
     #Step9: Fit the transformer on train and test
-    X_train = Transformer.fit_transform(X_train)   #Seen data
-    X_test = Transformer.transform(X_test)         #Unseen data
+    X_train_transform = Transformer.fit_transform(X_train)   #Seen data
+    X_test_transform = Transformer.transform(X_test)         #Unseen data
     
 
     #Step10: Fit_resample the data so that the target column will get balanced
@@ -83,8 +83,8 @@ def data_preprocessing(df):
        
 
     '''
-    
-    X_train_resample,y_train_resample = SMOTE().fit_resample(X_train,y_train)
+    sm = SMOTE(random_state = 1)
+    X_train_resample,y_train_resample = sm.fit_resample(X_train_transform,y_train)
     
     #Step11: Return preprocess X_train,X_test,y_train,y_test
-    return X_train,X_test,y_train,y_test
+    return X_train_resample,X_test_transform,y_train_resample,y_test
